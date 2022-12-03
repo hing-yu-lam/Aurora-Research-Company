@@ -2,11 +2,11 @@
 <div class="container">
     <!-- Title -->
     <div class="container p-3">
-        <h1 class="text-center">Survey List</h1>
+        <h1 class="text-center aurora-title">Survey List</h1>
     </div>
 
     <table class="table">
-        <thead>
+        <thead class="text-gray">
             <th class="text-center">Name</th>
             <th class="text-center">Duration</th>
             <th class="text-center" scope="col">Action</th>
@@ -14,8 +14,8 @@
         <tbody>
             <tr *ngFor="let survey of Surveys; let i = index">
                 <td>{{ survey.name }}</td>
-                <td class="text-center">{{ survey.start_time | date: 'yyyy/MM/dd'}} - {{survey.end_time | date:
-                    'yyyy/MM/dd'}}</td>
+                <td class="text-center">{{ survey.start_time | date: 'yyyy/MM/dd':"+0000"}} - {{survey.end_time | date:
+                    'yyyy/MM/dd':"+0000"}}</td>
                 <td class="text-center">
                     <button
                         [ngClass]="{'btn':true, 'btn-block':true, 'btn-warning':survey.isActive,'btn-info':!survey.isActive}"
