@@ -1,3 +1,15 @@
+/*******************************
+File Name: user.module.ts
+Description: User module. It defines the user related routes and declares the user related components.
+Web app name: Aurora Research Company
+Team name: A-Star
+Team Members:
+  Kuo, Yi-Cheng (301181514)
+  Yeung, Lok Ki (301252535)
+  Lam, Hing Yu (301257216)
+  Chung, Ting Hin (301287013)
+  Le, Hoang Long (301236235)
+********************************/
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
@@ -15,13 +27,13 @@ import { SharedModule } from '../shared/share.module';
 // Chart related import
 import { NgxEchartsModule } from 'ngx-echarts';
 import * as echarts from 'echarts/core';
-import { BarChart } from 'echarts/charts';
+import { BarChart, PieChart } from 'echarts/charts';
 import { TitleComponent, TooltipComponent, GridComponent } from 'echarts/components';
 import { CanvasRenderer } from 'echarts/renderers';
 import { EditUserComponent } from './edit-user/edit-user.component';
 import { EditPasswordComponent } from './edit-password/edit-password.component';
 
-echarts.use([TitleComponent, TooltipComponent, GridComponent, BarChart, CanvasRenderer]);
+echarts.use([TitleComponent, TooltipComponent, GridComponent, BarChart, PieChart, CanvasRenderer]);
 
 const routing = RouterModule.forChild([
   { path: 'auth', component: AuthComponent },

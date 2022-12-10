@@ -1,3 +1,16 @@
+/*******************************
+File Name: surveys.service.ts
+Description: Defines the surveys remote service
+Web app name: Aurora Research Company
+Team name: A-Star
+Team Members:
+  Kuo, Yi-Cheng (301181514)
+  Yeung, Lok Ki (301252535)
+  Lam, Hing Yu (301257216)
+  Chung, Ting Hin (301287013)
+  Le, Hoang Long (301236235)
+********************************/
+
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
@@ -27,9 +40,13 @@ export class SurveysService {
     this.loadToken();
    }
 
-  getSurveys(onlyActive: boolean): Observable<[Survey]> {
+   getUserSurveys(): Observable<[Survey]> {
     this.loadToken();
-    return this.http.post<[Survey]>(`${this.baseURL}/survey/list`, {onlyActive: onlyActive}, this.httpOptions);
+    return this.http.post<[Survey]>(`${this.baseURL}/survey/my-list`, {}, this.httpOptions);
+  }
+
+  getSurveys(): Observable<[Survey]> {
+    return this.http.post<[Survey]>(`${this.baseURL}/survey/list`, {}, this.httpOptions);
   }
 
   getSurvey(id: String): Observable<Survey> {

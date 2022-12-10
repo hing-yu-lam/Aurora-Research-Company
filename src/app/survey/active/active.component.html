@@ -1,3 +1,16 @@
+<!-- 
+File Name: active.component.html
+Description: Active survey component layout
+Web app name: Aurora Research Company
+Team name: A-Star
+Team Members:
+  Kuo, Yi-Cheng (301181514)
+  Yeung, Lok Ki (301252535)
+  Lam, Hing Yu (301257216)
+  Chung, Ting Hin (301287013)
+  Le, Hoang Long (301236235) 
+-->
+
 <!-- Active Surveys Section -->
 <div class="container" style="max-width: 950px; min-height: 480px">
 
@@ -17,10 +30,9 @@
             <th class="text-center" style="width: 110px;">Survey</th>
           </tr>
         </thead>
-        <tbody *ngFor="let survey of surveys">
-          <tr>
+        <tbody>
+          <tr *ngFor="let survey of activeSurveys">
             <td><a href="javascript:void(0);" [routerLink]="['/survey/answer', survey._id]">{{ survey.name }}</a></td>
-            
             <td> {{ survey.description | truncate:200:'...' }}</td>
             <td class="text-center">
               <a class="btn btn-info" href="javascript:void(0);" [routerLink]="['/survey/answer', survey._id]">
@@ -28,7 +40,13 @@
               </a>
             </td>
           </tr>
-
+          <tr *ngFor="let survey of inactiveSurveys">
+            <td style="color: gray">{{ survey.name }}</td>
+            <td style="color: gray"> {{ survey.description | truncate:200:'...' }}</td>
+            <td class="text-center">
+              <button type="button" class="btn btn-outline-secondary" disabled>Stopped</button>
+            </td>
+          </tr>
         </tbody>
       </table>
       <hr style="height: 3px; background-color: #44abe7"/>
